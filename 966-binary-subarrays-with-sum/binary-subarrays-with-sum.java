@@ -1,5 +1,5 @@
 class Solution {
-    public int numSubarraysWithSum(int[] nums, int k) {
+    public int numSubarraysWithSum(int[] nums, int goal) {
         HashMap<Integer,Integer>map= new HashMap<>();
         int n=nums.length;
         int curr_sum=0;
@@ -10,8 +10,8 @@ class Solution {
             curr_sum+=nums[i];
 
         
-        if (map.containsKey(curr_sum-k)){
-            count+=map.get(curr_sum-k);
+        if (map.containsKey(curr_sum-goal)){
+            count+=map.get(curr_sum-goal);
         }
         map.put(curr_sum,map.getOrDefault(curr_sum,0)+1);
         }
