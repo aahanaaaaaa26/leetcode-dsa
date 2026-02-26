@@ -14,18 +14,13 @@ class Solution {
         }
         if (zero<k) return n;
         while(j<n){
-
             curr_sum+=nums[j];
-
             if(j-i+1 - curr_sum > k){
                 curr_sum -= nums[i];
                 i++;
-
             }
             else if (j-i+1-curr_sum==k){
                 ans=Math.max(ans,j-i+1);
-              
-
             }
               j++;
         }
