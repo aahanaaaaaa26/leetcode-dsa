@@ -23,15 +23,15 @@ class Solution {
             right--;
 
             // 3. bottom row
-            if(top <= bottom){
+            if(top <= bottom && left <= right){
                 for(int i = right; i >= left; i--){
                     ans.add(matrix[bottom][i]);
                 }
                 bottom--;
             }
 
-            // 4. left column
-            if(left <= right){
+            // 4. left column....bottom to top
+            if(top <= bottom && left <= right){
                 for(int i = bottom; i >= top; i--){
                     ans.add(matrix[i][left]);
                 }
