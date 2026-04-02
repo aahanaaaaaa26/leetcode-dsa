@@ -8,7 +8,8 @@ class Solution {
 
         char temp = board[i][j] ;
         board[i][j] = '#' ;
-        boolean ans = Solve(i+1,j,idx+1,board,word) || Solve(i-1,j,idx+1,board,word) || Solve(i,j+1,idx+1,board,word) || Solve(i,j-1,idx+1,board,word)  ;
+        boolean ans = 
+        Solve(i+1,j,idx+1,board,word) || Solve(i-1,j,idx+1,board,word) || Solve(i,j+1,idx+1,board,word) || Solve(i,j-1,idx+1,board,word)  ;
 
         board[i][j] = temp ;
         return ans ;
