@@ -92,7 +92,7 @@ class Solution {
 
         int index = FindMin(0, n - 1, nums);
 
-        // 🔥 optimization
+        
         if (nums[index] <= target && target <= nums[n - 1]) {
             return BinarySearch(index, n - 1, nums, target);
         } else {
