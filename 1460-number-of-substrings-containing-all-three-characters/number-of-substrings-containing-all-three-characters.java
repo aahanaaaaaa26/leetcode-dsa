@@ -10,7 +10,7 @@ class Solution {
             //putting element
             // 0 + 1 = 1
             ans[s.charAt(j)-'a']++ ; // ans['a'-'a']-> ans[97-97] = ans[0]
-            while(ans[0] >= 1 && ans[1] >= 1 && ans[2] >= 1)
+            while(ans[0] >0 && ans[1] >0 && ans[2] >0)
             {
                 // element remove
                 count += n - j ;
