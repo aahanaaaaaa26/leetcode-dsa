@@ -3,7 +3,7 @@ class Solution {
         
         int i = 0 , j = 0 , n = s.length() ;
         int[] ans = new int[3] ;
-        if(n < 3) return 0;
+        if(n < 3) return 0;  //length choti h 3 se toh add ni ho skte
         int count = 0 ;
         while(j < n)
         {
