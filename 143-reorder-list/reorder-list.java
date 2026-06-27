@@ -8,44 +8,84 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+// class Solution {
+//     public static ListNode reverse(ListNode head){
+//         ListNode prev = null;
+//         ListNode curr = head;
+//         while(curr!= null){
+//             ListNode next = curr.next;
+//             curr.next = prev;
+//             prev = curr;
+//             curr = next;
+//         }
+//         return prev;
+//     }
+
+// // find middle
+
+//     public void reorderList(ListNode head) {
+//         if(head == null || head.next == null) return;
+//         ListNode slow = head;
+//         ListNode fast = head;
+//         while(fast.next != null && fast.next.next != null) {
+//             slow = slow.next;
+//             fast = fast.next.next;
+//         }
+// // reverse call
+//         ListNode second = reverse(slow.next);
+//         slow.next = null;
+// // merge
+
+//         ListNode first = head;
+//         while(second != null){
+//             ListNode temp1 = first.next;
+//             ListNode temp2 = second.next;
+
+//             first.next = second;
+//             second.next = temp1;
+
+//             first = temp1;
+//             second = temp2;
+//         }
+//     }
+// }
 class Solution {
-    public static ListNode reverse(ListNode head){
-        ListNode prev = null;
-        ListNode curr = head;
-        while(curr!= null){
-            ListNode next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
-    }
-
-// find middle
-
     public void reorderList(ListNode head) {
-        if(head == null || head.next == null) return;
-        ListNode slow = head;
-        ListNode fast = head;
-        while(fast.next != null && fast.next.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
+
+        if (head == null || head.next == null) return;
+
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        ListNode temp = head;
+
+        // Store values
+        while (temp != null) {
+            ans.add(temp.val);
+            temp = temp.next;
         }
-// reverse call
-        ListNode second = reverse(slow.next);
-        slow.next = null;
-// merge
 
-        ListNode first = head;
-        while(second != null){
-            ListNode temp1 = first.next;
-            ListNode temp2 = second.next;
+        ArrayList<Integer> curr = new ArrayList<>();
 
-            first.next = second;
-            second.next = temp1;
+        int i = 0;
+        int j = ans.size() - 1;
 
-            first = temp1;
-            second = temp2;
+        while (i <= j) {
+
+            curr.add(ans.get(i));
+            i++;
+
+            if (i <= j) {
+                curr.add(ans.get(j));
+                j--;
+            }
+        }
+
+        // Update linked list using for loop
+        temp = head;
+
+        for (int k = 0; k < curr.size(); k++) {
+            temp.val = curr.get(k);
+            temp = temp.next;
         }
     }
 }
