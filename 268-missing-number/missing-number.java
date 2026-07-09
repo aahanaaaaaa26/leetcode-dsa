@@ -6,7 +6,7 @@ class Solution {
 
         for(int i=0;i<n;i++)
         {
-            Sum += nums[i];
+            Sum = Sum+ nums[i];
         }
         return expectedSum - Sum;
     }
