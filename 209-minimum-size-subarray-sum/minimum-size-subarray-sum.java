@@ -7,11 +7,11 @@ class Solution {
 
         for (int right = 0; right < nums.length; right++) {
 
-            sum += nums[right];
+            sum = sum + nums[right];
 
             while (sum >= target) {
                 ans = Math.min(ans, right - left + 1);
-                sum -= nums[left];
+                sum = sum - nums[left];
                 left++;
             }
         }
